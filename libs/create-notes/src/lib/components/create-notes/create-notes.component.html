@@ -1,0 +1,46 @@
+<div class="create-notes-container">
+  <button type="button" (click)="goBack()" class="secondary">
+    Go Back to Notes
+  </button>
+  <form
+    role="form"
+    autocomplete="off"
+    [formGroup]="notesFormGroup"
+    (ngSubmit)="addNote()"
+  >
+    <div>
+      <input
+        id="tittle"
+        type="text"
+        formControlName="tittle"
+        placeholder="Add your Tittle"
+      />
+    </div>
+    <div>
+      <textarea
+        swiftNoteAppAddBulletPoints
+        formControlName="description"
+        placeholder="Add your Notes"
+        (descriptionChange)="onTextAreaChange($event)"
+        bulletInTextBox
+      ></textarea>
+    </div>
+    <div class="actions">
+      <button type="submit" class="primary">
+        <ng-container *ngIf="routeParamNoteId; else addBtn">
+          Save Notes
+        </ng-container>
+        <ng-template #addBtn> Add Notes </ng-template>
+      </button>
+      <button type="reset" class="secondary">Clear Notes</button>
+      <button
+        *ngIf="routeParamNoteId"
+        type="button"
+        class="danger"
+        (click)="deleteNote()"
+      >
+        Delete Note
+      </button>
+    </div>
+  </form>
+</div>

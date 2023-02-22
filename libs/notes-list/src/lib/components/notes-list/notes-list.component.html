@@ -1,0 +1,27 @@
+<button class="primary" (click)="createNotes()">Create / Add Notes</button>
+<ng-container *ngIf="message$ | async as message">
+  <section *ngIf="showMessage">
+    <strong>{{ message }}</strong>
+  </section>
+</ng-container>
+<div class="note-main-container">
+  <ng-container *ngIf="notes$ | async as notes">
+    <ng-container *ngFor="let note of notes">
+      <div class="note" (click)="editNote(note.noteId)">
+        <p>
+          {{ note.noteTitle }}
+        </p>
+        <div class="content">
+          <ul>
+            <li *ngFor="let point of note.noteDescription">
+              <ng-container *ngIf="point.trim() !== '•'; else showContent">{{
+                point
+              }}</ng-container>
+              <ng-template #showContent> </ng-template>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

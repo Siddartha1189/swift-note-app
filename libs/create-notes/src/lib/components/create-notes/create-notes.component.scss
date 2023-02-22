@@ -1,0 +1,22 @@
+:host {
+  padding: 10px;
+  .create-notes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      input[type='text'] {
+        width: 84%;
+      }
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+  }
+}

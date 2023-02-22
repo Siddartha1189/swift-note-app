@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@swift-note-app/create-notes": ["libs/create-notes/src/index.ts"],
+      "@swift-note-app/notes-list": ["libs/notes-list/src/index.ts"],
+      "@swift-note-app/shared": ["libs/shared/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
